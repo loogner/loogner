@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сакура - Доставка и самовывоз цветов</title>
+     <link rel="stylesheet" href="style.css">
+     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6-beta.24/inputmask.min.js"></script>
+</head>
+<body>
+   <header>
+        <div class="container">
+            <div class="logo">
+                <img src="static/img/logo.png" alt="Логотип Сакура">
+                <a href="javascript:void(0)" class="store-name">SakuraFlowers</a>
+                <a href="javascript:void(0)" class="tagline">Cherry Blossom</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Поиск цветов, букетов..." />
+                <button id="search-button">Найти</button>
+            </div>
+            <div class="account-cart">
+                <a href="#" class="cart" id="open-cart">
+                    <img src="static/img/bascet.png" alt="Корзина">
+                    <span id="cart-count">0</span>
+                </a>
+                <a href="#" class="account">
+                    <img src="static/img/acount.png" alt="Войти">
+                </a>
+            </div>
+        </div>
+        <nav class="tab-menu">
+            <button class="tab-link" data-tab="flowers">Цветы</button>
+            <button class="tab-link" data-tab="bouquets">Букеты</button>
+            <button class="tab-link" data-tab="indoor-flowers">Комнатные цветы</button>
+            <button class="tab-link" data-tab="care">Уход за цветами</button>
+            <button class="tab-link" data-tab="contact">Контакты</button>
+        </nav>
+    </header>
+    <main>
+    <div id="search-results" style="display: none;">
+        <h2>Результаты поиска</h2>
+        <div id="results-container"></div>
+    </div>
+    <section id="hero" class="tab-content active">
+        <h1>Добро пожаловать в магазин цветов "Сакура"</h1>
+        <p>Доставка и самовывоз свежих цветов прямо к вам!</p>
+        <a href="javascript:void(0)" id="make-order" class="btn">Сделать заказ</a>
+        <div class="info">
+            <h2>О нашем магазине</h2>
+            <p>Мы предлагаем широкий ассортимент свежих цветов и букетов для любого случая. У нас вы найдете цветы на любой вкус — от классических роз до экзотических орхидей.</p>
+            <h2>Доставка и самовывоз</h2>
+            <p>Предлагаем быструю и удобную доставку по городу, а также возможность самовывоза из нашего магазина. Заказы принимаются круглосуточно, а доставка осуществляется в удобное для вас время.</p>
+        </div>
+        <a href="javascript:void(0)" id="go-to-delivery" class="btn">Перейти к разделу Доставка</a>
+        <div class="info">
+            <h2>Мы на рынке 5 лет</h2>
+            <p>Ни один клиент не остался без цветов</p>
+        </div>
+        <a href="javascript:void(0)" id="read-reviews" class="btn">Читать отзывы</a>
+    </section>
+    <section id="reviews" class="tab-content">
+        <h2>Отзывы наших клиентов</h2>
+        <div class="review">
+            <p><strong>Анна:</strong> Очень красивые цветы, доставка вовремя!</p>
+        </div>
+        <div class="review">
+            <p><strong>Иван:</strong> Большой выбор и приятные цены!</p>
+        </div>
+    </section>
+        <!-- Секция "Цветы" -->
+    <section id="flowers" class="tab-content">
+        <section class="flower-shop">
+        <h2>Выберите ваши любимые цветы</h2>
+        <div class="flower-list">
+            <div class="flower-item">
+                <img src="static/img/flow/rosepink.jpg" alt="Розы" class="flower-image">
+                <h3>Роза</h3>
+                <div class="color-options">
+                    <button class="color-circle" style="background-color: red;" data-color-id="Красная" data-image="static/img/flow/rosered.jpg"></button>
+                    <button class="color-circle" style="background-color: pink;" data-color-id="Розовая" data-image="static/img/flow/rosepink.jpg"></button>
+                    <button class="color-circle" style="background-color: white;" data-color-id="Белая" data-image="static/img/flow/rosewhite.jpg"></button>
+                </div>
+                <p class="price">Цена: 7 руб/шт</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/hrizpink.jpg" alt="Хризантемы" class="flower-image">
+                <h3>Хризантема</h3>
+                <div class="color-options">
+                    <button class="color-circle" style="background-color: hotpink;" data-color-id="Розовая" data-image="static/img/flow/hrizpink.jpg"></button>
+                    <button class="color-circle" style="background-color: white;" data-color-id="Белая" data-image="static/img/flow/hrizwhite.jpg"></button>
+                </div>
+                <p class="price">Цена: 8 руб/шт</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/tulpink.jpg" alt="Тюльпаны" class="flower-image">
+                <h3>Тюльпан</h3>
+                <div class="color-options">
+                    <button class="color-circle" style="background-color: hotpink;" data-color-id="Розовые" data-image="static/img/flow/tulpink.jpg"></button>
+                    <button class="color-circle" style="background-color: white;" data-color-id="Белые" data-image="static/img/flow/tulpwhite.jpg"></button>
+                    <button class="color-circle" style="background-color: mediumpurple;" data-color-id="Сиреневые" data-image="static/img/flow/tulpurp.jpg"></button>
+                    <button class="color-circle" style="background-color: red;" data-color-id="Красные" data-image="static/img/flow/tulpred.jpg"></button>
+                </div>
+                <p class="price">Цена: 10 руб/шт</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/pionpink.jpg" alt="Пионы" class="flower-image">
+                <h3>Пион</h3>
+                <div class="color-options">
+                    <button class="color-circle" style="background-color: hotpink;" data-color-id="Розовые" data-image="static/img/flow/pionpink.jpg"></button>
+                    <button class="color-circle" style="background-color: white; "data-color-id="Белые" data-image="static/img/flow/pionwhite.jpg"></button>
+                    <button class="color-circle" style="background-color: skyblue;" data-color-id="Голубые" data-image="static/img/flow/pionblue.jpg"></button>
+                </div>
+                <p class="price">Цена: 11 руб/шт</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/gortpink.jpg" alt="Гортензия" class="flower-image">
+                <h3>Гортензия</h3>
+                <div class="color-options">
+                    <button class="color-circle" style="background-color: pink;" data-color-id="Розовая" data-image="static/img/flow/gortpink.jpg"></button>
+                    <button class="color-circle" style="background-color: purple;" data-color-id="Сиреневая" data-image="static/img/flow/gortpurp.jpg"></button>
+                    <button class="color-circle" style="background-color: blue;" data-color-id="Синяя" data-image="static/img/flow/gortblue.jpg"></button>
+                    <button class="color-circle" style="background-color: rebeccapurple;" data-color-id="Фиолетовая" data-image="static/img/flow/gortneon.jpg"></button>
+                </div>
+                <p class="price">Цена: 15 руб/шт</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/ranunlpink.jpg" alt="Ранункулюс" class="flower-image">
+                <h3>Ранункулюс</h3>
+                <div class="color-options">
+                    <button class="color-circle" style="background-color: pink;" data-color-id="НЕжно-розовый" data-image="static/img/flow/ranunlpink.jpg"></button>
+                    <button class="color-circle" style="background-color: lightpink;" data-color-id="Розовый" data-image="static/img/flow/ranunpink.jpg"></button>
+                    <button class="color-circle" style="background-color: white;" data-color-id="Белый" data-image="static/img/flow/ranunwhite.jpg"></button>
+                </div>
+                <p class="price">Цена: 15 руб/шт</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- Секция "Букеты" -->
+    <section id="bouquets" class="tab-content">
+        <section class="flower-shop">
+        <h2>Выберите подходящий букет</h2>
+        <div class="flower-list">
+            <div class="flower-item">
+                <img src="static/img/flow/buket.jpg" alt="Букет 1" class="flower-image">
+                <h3>Персиковая нежность</h3>
+                <p class="flower-description">Изысканный букет из нежно-персиковых роз с лёгким румянцем на лепестках. Он словно создан, чтобы выразить самые искренние и тёплые чувства.</p>
+                <p class="price">Цена: 90 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/buket1.jpg" alt="Букет 2" class="flower-image">
+                <h3>Розовый вихрь</h3>
+                <p class="flower-description">Чудесный букет из персиковых роз, украшенных зеленью и гипсофилой. Это будет идеальным подарком или центральным украшением для особого случая.</p>
+                <p class="price">Цена: 40 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/buket2.jpg" alt="Букет 3" class="flower-image">
+                <h3>Мелодия весны</h3>
+                <p class="flower-description">Букет из роз, гвоздик и розовых альстромерий, который расскажет о нежности и романтике.</p>
+                <p class="price">Цена: 80 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/buket3.jpg" alt="Букет 4" class="flower-image">
+                <h3>Тропический бриз</h3>
+                <p class="flower-description">Экзотическая композиция из антуриумов, роз и зелени, навевает мысли о далёких путешествиях.</p>
+                <p class="price">Цена: 80 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/buket4.jpg" alt="Букет 5" class="flower-image">
+                <h3>Розовый вальс</h3>
+                <p class="flower-description">Романтичная композиция из белых пионов и розовых гипсофил, дополненная воздушными лентами. Букет, который расскажет о мечтах и вдохновении.</p>
+                <p class="price">Цена: 80 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/buket5.jpg" alt="Букет 6" class="flower-image">
+                <h3>Яркость эмоций</h3>
+                <p class="flower-description">Контрастный букет из роз и альстромерий, объединяющий мягкие пастельные оттенки с насыщенными яркими цветами. Для тех, кто любит сочетание нежности и энергии.</p>
+                <p class="price">Цена: 95 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- Секция "Комнатные цветы" -->
+    <section id="indoor-flowers" class="tab-content">
+        <section class="flower-shop">
+        <h2>Выберите комнатное растение для себя</h2>
+        <div class="flower-list">
+            <div class="flower-item">
+                <img src="static/img/flow/till.jpg" alt="Тилландсия" class="flower-image">
+                <h3>Тилландсия</h3>
+                <p class="flower-description">Украшает, очищает пространство. Народные приметы гласят, что этот цветок, как амулет приносит в дом удачу, материальное благополучие. Также полезна Тилландсия своим присутствием в помещении, она концентрирует положительную энергетику, способствует самостоятельности и независимости.</p>
+                <p class="price">Цена: 62 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/dav.jpg" alt="Флебодиум Давана" class="flower-image">
+                <h3>Флебодиум Давана</h3>
+                <p class="flower-description">Главное украшения представителей Папоротников. Изумрудно-голубоватые вайи с серебристым оттенком красиво ниспадают, удивляя волнистыми краями.</p>
+                <p class="price">Цена: 42 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/ger.jpg" alt="Герань Королевская" class="flower-image">
+                <h3>Герань Королевская</h3>
+                <p class="flower-description">Королевская пеларгония – поистине царский цветок. Шикарная расцветка и веерообразные листья делают ее желанной гостьей на каждом подоконнике.</p>
+                <p class="price">Цена: 17 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/air.jpg" alt="Аихризон" class="flower-image">
+                <h3>Аихризон (дерево любви)</h3>
+                <p class="flower-description">Очень красивое растение из семейства Толстянковых. Само растёт деревцем, не требует формировки. Деревом любви называют Аихризон потому что форма его листьев напоминает сердце.</p>
+                <p class="price">Цена: 13 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/pah.jpg" alt="Пахира" class="flower-image">
+                <h3>Пахира</h3>
+                <p class="flower-description">Благодаря своей зеленой листве он не только привносит в дом нотку природы, но и, как говорят, символизирует положительную энергию и процветание.</p>
+                <p class="price">Цена: 100 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/dra.jpg" alt="Драцена" class="flower-image">
+                <h3>Драцена Еллоу</h3>
+                <p class="flower-description">Драцена или «счастливый бамбук» может принести своему владельцу целый комплект благ: богатство, удачу, хорошее здоровье, верных друзей и крепкую семью.</p>
+                <p class="price">Цена: 36 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/ban.jpg" alt="Банан" class="flower-image">
+                <h3>Банановое дерево</h3>
+                <p class="flower-description">Банан, или Муса Тропикана — многолетнее растение, принадлежащее к семейству Банановые. Хотя его называют пальмой, в действительности банан является гигантской травой.</p>
+                <p class="price">Цена: 48.5 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="flower-item">
+                <img src="static/img/flow/lavr.jpg" alt="Лавр" class="flower-image">
+                <h3>Лавр</h3>
+                <p class="flower-description">В домашнем уюте лавр проживёт порядка 15 лет, растение неприхотливо и легко адаптируется к имеющимся условиям.</p>
+                <p class="price">Цена: 34 руб</p>
+                <div class="cart-controls">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- Секция "Уход за цветами" -->
+    <section id="care" class="tab-content">
+        <section class="care-header">
+        <h1>Уход за цветами</h1>
+        <p>Советы и рекомендации, чтобы ваши цветы оставались свежими и красивыми как можно дольше.</p>
+    </section>
+    <section class="care-tips">
+        <div class="tip-item">
+            <h2>Розы</h2>
+            <p>Чтобы розы дольше радовали глаз, смените воду в вазе через каждые 2 дня и подрежьте стебли под углом 45 градусов.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Тюльпаны</h2>
+            <p>Тюльпаны лучше сохранят свежесть, если держать их в прохладном месте вдали от прямых солнечных лучей.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Хризантемы</h2>
+            <p>Добавьте немного сахара в воду, чтобы хризантемы дольше сохраняли свою красоту.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Гортензии</h2>
+            <p>Опрыскивайте листья гортензий водой, чтобы они оставались увлажнёнными и свежими.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Ранункулюсы</h2>
+            <p>Ранункулюсы любят слегка прохладную воду. Меняйте её ежедневно и подрезайте стебли для лучшего впитывания.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Пионы</h2>
+            <p>Обрезайте стебли под углом, меняйте воду ежедневно, держите в прохладном месте.</p>
+        </div>
+        </section>
+    <section class="care-header">
+        <h1>Уход за комнатными растениями</h1>
+    </section>
+        <section class="care-tips">
+        <div class="tip-item">
+            <h2>Тилландсия</h2>
+            <p>Полив: Опрыскивание 2-3 раза в неделю.
+                Свет: Яркий рассеянный свет, избегать прямых лучей.
+                Особенности: Не нуждается в почве, можно разместить на декоративных подставках.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Флебодиум Давана</h2>
+            <p>Полив: Умеренный, не допускайте пересыхания почвы.
+                Свет: Полутень, избегать прямых солнечных лучей.
+                Особенности: Высокая влажность, регулярно опрыскивайте листья.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Герань Королевская</h2>
+            <p>Полив: Умеренный, не допускайте застоя воды.
+                Свет: Яркий солнечный свет.
+                Особенности: Удаляйте отцветшие соцветия для продления цветения.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Аихризон</h2>
+            <p>Полив: Умеренный, после полного высыхания почвы.
+                Свет: Яркий рассеянный свет.
+                Особенности: Любит тепло, но избегайте перегрева.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Пахира</h2>
+            <p>Полив: Умеренный, не допускать застоя воды.
+                Свет: Яркий рассеянный свет.
+                Особенности: Протирайте листья от пыли.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Драцена Еллоу</h2>
+            <p>Полив: Умеренный, регулярный, без переливов.
+                Свет: Рассеянный свет, но может расти и в полутени.
+                Особенности: Периодически протирайте листья и опрыскивайте.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Банановое дерево</h2>
+            <p>Полив: Обильный, но без застоя воды.
+                Свет: Яркий солнечный свет.
+                Особенности: Высокая влажность, регулярно опрыскивайте листья.</p>
+        </div>
+        <div class="tip-item">
+            <h2>Лавр</h2>
+            <p>Полив: Умеренный, почва не должна пересыхать.
+                Свет: Яркий свет или полутень.
+                Особенности: Подрезайте для формирования красивой формы.</p>
+        </div>
+        
+    </section>
+    </section>
+
+    <!-- Секция "Контакты" -->
+    <section id="contact" class="tab-content">
+        <section class="contact">
+            <h1>Контакты</h1>
+            <div class="contact-details">
+                <h2>Свяжитесь с нами</h2>
+                <p><strong>Адрес:</strong> г. Могилев, ул. Ленина, д. 10</p>
+                <p><strong>Телефон:</strong> <a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@sakuraflowers.by">info@sakuraflowers.by</a></p>
+            </div>
+            <div class="delivery-section" id="delivery-section">
+                <div class="delivery-info">
+                    <h2>Условия доставки и самовывоза</h2>
+                    <p>Мы предлагаем доставку по городу Могилев в течение 2 часов с момента подтверждения заказа. Стоимость доставки составляет 5 BYN, а для заказов на сумму от 50 BYN доставка бесплатная.</p>
+                    <p>Также вы можете воспользоваться услугой самовывоза из нашего магазина. Наш адрес: ул. Ленина, д. 10.</p>
+                    <p>Часы работы: ежедневно с 9:00 до 21:00.</p>
+                </div>
+                <div class="map-container">
+                    <h2>Зона доставки</h2>
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4832c8ec34080f0fee60c74fc7c33af1fdce1b1a9ed6188ac52785dd157957f3&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </div>
+        </section>
+    </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Сакура. Все права защищены.</p>
+    </footer>
+     <!-- Модальное окно корзины -->
+    <div id="cart-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div id="delivery-method">
+                    <div class="tabs">
+                        <button class="tab-button" data-tab="pickup-tab">Самовывоз</button>
+                        <button class="tab-button" data-tab="delivery-tab">Доставка</button>
+                    </div>
+                    <div id="pickup-tab" class="tab-content active">
+                        <p>Самовывоз: г. Могилев, ул. Ленина, д. 10</p>
+                    </div>
+                    <div id="delivery-tab" class="tab-content">
+                        <p>Введите адрес доставки:</p>
+                        <label>Улица: <input type="text" id="street"></label>
+                        <label>Дом: <input type="text" id="house"></label>
+                        <label>Подъезд: <input type="text" id="entrance"></label>
+                        <label>Этаж: <input type="text" id="floor"></label>
+                        <label>Квартира: <input type="text" id="apartment"></label>
+                        <label>Примечание к заказу: <textarea id="note"></textarea></label>
+                    </div>
+                    <p id="delivery-cost">Стоимость доставки: 0 руб</p>
+                    <p id="auth-warning" style="color: red; display: none;"></p>
+                </div>
+            <span class="close" id="close-cart">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div id="cart-items"></div>
+            <p id="total-price">Общая сумма: 0 руб</p>
+            <div id="decor-options">
+                <h3>Добавить украшения:</h3>
+                <label>
+                    <input type="checkbox" data-price="5" class="decor-option">
+                    Лента (+5 руб)
+                </label>
+                <label>
+                    <input type="checkbox" data-price="7" class="decor-option">
+                    Упаковочная бумага (+7 руб)
+                </label>
+            </div>
+            <button id="place-order">Оформить заказ</button>
+            <div class="cart-actions">
+                <button id="clear-cart">Очистить корзину</button>
+            </div>
+            <p id="auth-warning" style="color: red; display: none;">Пожалуйста, войдите в аккаунт, чтобы оформить заказ.</p>
+        </div>
+    </div>
+    <!-- Модальное окно для личного кабинета -->
+    <div id="account-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-account">&times;</span>
+
+            <!-- Контент для ввода имени и телефона (если пользователь не авторизован) -->
+            <div id="login-content" style="display: none;">
+                <h2>Вход в аккаунт</h2>
+                <form id="login-form">
+                    <label for="username">Ваше имя</label>
+                    <input type="text" id="username" name="username" placeholder="Введите ваше имя" required />
+
+                    <label for="phone">Ваш телефон</label>
+                    <input type="text" id="phone" name="phone" placeholder="Введите ваш телефон" required />
+                    <span id="phone-error" style="display: none; color: red;">Введите корректный номер телефона</span>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
+
+            <!-- Контент личного кабинета (когда пользователь авторизован) -->
+            <div id="account-content" style="display: none;">
+                <h2>Личный кабинет</h2>
+                <div>
+                    <p><strong>Имя:</strong> <span id="user-name"></span></p>
+                    <p><strong>Телефон:</strong> <span id="user-phone"></span></p>
+                </div>
+
+                <div>
+                    <h3>История заказов</h3>
+                    <ul id="order-history">
+                        <li>История заказов пуста</li>
+                    </ul>
+                </div>
+
+                <div class="navigation">
+                    <a href="javascript:void(0)" id="order-link">Перейти к выбору</a>
+                    <a href="javascript:void(0)" id="main-menu-link">Перейти в главное меню</a>
+                    <a href="javascript:void(0)" id="logout-link">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
